@@ -1,17 +1,10 @@
 ﻿@model IEnumerable<WebStoreNet7.Models.Employee>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Сотрудники</title>
-</head>
-<body>
+<div class="container">
     <h3>Сотрудники</h3>
     <hr />
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>#</th>
@@ -38,7 +31,6 @@
     </table>
 
     <p>
-        <a href="/">Главная</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-default">Главная</a>
     </p>
-</body>
-</html>
+</div>
