@@ -12,5 +12,12 @@ namespace WebStoreNet7.Controllers
             _Employees = TestData.Employees;
         }
         public IActionResult Index() => View(_Employees);
+
+        public IActionResult Details(int id)
+        {
+            var employee = _Employees.SingleOrDefault(x => x.Id == id);
+            if (employee is null) return NotFound(); 
+            return View(employee);
+        }
     }
 }
