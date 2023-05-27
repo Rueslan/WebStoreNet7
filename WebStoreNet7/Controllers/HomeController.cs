@@ -6,8 +6,6 @@ namespace WebStoreNet7.Controllers
     {
         public IActionResult Index() => View();
         public IActionResult Page404() => View();
-        public IActionResult Blog() => View();
-        public IActionResult BlogSingle() => View();
         public IActionResult Cart() => View();
         public IActionResult Checkout() => View();
         public IActionResult ContactUs() => View();
