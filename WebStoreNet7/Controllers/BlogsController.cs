@@ -4,9 +4,7 @@ namespace WebStoreNet7.Controllers
 {
 	public class BlogsController : Controller
 	{
-		public IActionResult Index()
-		{
-			return View();
-		}
+		public IActionResult Index() => View();
+		public IActionResult WebStoreBlog() => View();
 	}
 }
