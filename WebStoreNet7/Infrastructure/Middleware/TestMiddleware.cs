@@ -12,9 +12,15 @@
 
         public async Task InvokeAsync(HttpContext context)
         {
+            //Предобработка
+
             var processing = _Next(context);
 
+			//обработка параллельно
+
 			await processing;
+
+            //Постобработка
         }
     }
 }
