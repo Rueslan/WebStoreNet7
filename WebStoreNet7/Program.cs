@@ -1,8 +1,12 @@
 using WebStoreNet7.Infrastructure.Convenctions;
 using WebStoreNet7.Infrastructure.Middleware;
+using WebStoreNet7.Services;
+using WebStoreNet7.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews(opt => opt.Conventions.Add(new TestControllerConvention())).AddRazorRuntimeCompilation();
+var services = builder.Services;
+services.AddSingleton<IEmployeesData,InMemoryEmployeesData>();
+services.AddControllersWithViews(opt => opt.Conventions.Add(new TestControllerConvention())).AddRazorRuntimeCompilation();
 var app = builder.Build();
 
 app.UseStaticFiles();
