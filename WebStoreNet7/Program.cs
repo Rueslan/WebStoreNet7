@@ -9,6 +9,10 @@ services.AddSingleton<IEmployeesData,InMemoryEmployeesData>();
 services.AddControllersWithViews(opt => opt.Conventions.Add(new TestControllerConvention())).AddRazorRuntimeCompilation();
 var app = builder.Build();
 
+#if DEBUG
+    app.UseDeveloperExceptionPage();
+#endif
+
 //app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseRouting();
