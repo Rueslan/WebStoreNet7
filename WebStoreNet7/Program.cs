@@ -9,10 +9,11 @@ services.AddSingleton<IEmployeesData,InMemoryEmployeesData>();
 services.AddControllersWithViews(opt => opt.Conventions.Add(new TestControllerConvention())).AddRazorRuntimeCompilation();
 var app = builder.Build();
 
+app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseMiddleware<TestMiddleware>();
-//app.MapGet("/", () => "Hello World!");
+app.UseStatusCodePagesWithReExecute("/Home/Status/{0}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
