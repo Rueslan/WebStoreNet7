@@ -8,7 +8,7 @@ using WebStoreNet7.Domain.Entities.Base.Interfaces;
 
 namespace WebStoreNet7.Domain.Entities
 {
-    internal class Brand : NamedEntity, IOrderedEntity
+    public class Brand : NamedEntity, IOrderedEntity
     {
         public int Order { get; set; }
     }
