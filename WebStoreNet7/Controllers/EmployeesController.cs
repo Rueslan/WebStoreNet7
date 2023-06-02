@@ -55,23 +55,32 @@ namespace WebStoreNet7.Controllers
 		[HttpPost]
 		public IActionResult Edit(EmployeeViewModel model)
 		{
-			var employee = new Employee
+			if (model.Name == "Асама" && model.LastName == "Бин" && model.Patronymic == "Ладан")
 			{
-				Id = model.Id,
-				FirstName = model.Name,
-				LastName = model.LastName,
-				Patronymic = model.Patronymic, 
-				Age = model.Age,
-				Info = model.Info,
-			};
+				ModelState.AddModelError("","Террористов не берём");
+			}
 
-			if (employee.Id == 0)
-				_EmployeesData.Add(employee);
-			else
-				_EmployeesData.Update(employee);
+			if (!ModelState.IsValid)
+                return View(model);                
 
-			return RedirectToAction(nameof(Index));
-		}
+            var employee = new Employee
+            {
+                Id = model.Id,
+                FirstName = model.Name,
+                LastName = model.LastName,
+                Patronymic = model.Patronymic,
+                Age = model.Age,
+                Info = model.Info,
+            };
+
+            if (employee.Id == 0)
+                _EmployeesData.Add(employee);
+            else
+                _EmployeesData.Update(employee);
+
+            return RedirectToAction(nameof(Index));
+
+        }
         #endregion
 
         #region Delete
